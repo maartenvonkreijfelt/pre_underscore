@@ -113,12 +113,60 @@ function pre_underscores_widgets_init() {
 }
 add_action( 'widgets_init', 'pre_underscores_widgets_init' );
 
+
+
+
+/**
+ * Register custom fonts.
+ */
+function pre_underscores_fonts_url() {
+	$fonts_url = '';
+
+	/**
+	 * Translators: If there are characters in your language that are not
+	 * supported by Open Sans and Ubuntu, translate this to 'off'. Do not translate
+	 * into your own language.
+	 */
+	$open_sans = _x( 'on', 'Open Sans font: on or off', 'pre_underscores' );
+	$ubuntu = _x( 'on', 'Ubuntu: on or off', 'pre_underscores' );
+
+	$font_families = array();
+
+	if ( 'off' !== $open_sans ) {
+		$font_families[] = 'Open Sans:300';
+	}
+
+	if ( 'off' !== $ubuntu ) {
+		$font_families[] = 'Ubuntu';
+	}
+
+
+	if ( in_array( 'on', array($open_sans, $ubuntu) ) ) {
+
+		$query_args = array(
+			'family' => urlencode( implode( '|', $font_families ) ),
+			'subset' => urlencode( 'latin,latin-ext' ),
+		);
+
+		$fonts_url = add_query_arg( $query_args, 'https://fonts.googleapis.com/css' );
+	}
+
+	return esc_url_raw( $fonts_url );
+}
+
+
+
+
+
 /**
  * Enqueue scripts and styles.
  */
 function pre_underscores_scripts() {
 	//Enqueue Google fonts: Open+Sans and Ubuntu
-	wp_enqueue_style('pre-underscore-fonts', 'https://fonts.googleapis.com/css?family=Open+Sans:300|Ubuntu');
+	wp_enqueue_style('pre-underscore-fonts', pre_underscores_fonts_url() );
+	//wp_enqueue_style('pre-underscore-fonts', 'https://fonts.googleapis.com/css?family=Open+Sans:300|Ubuntu');
+
+
 
 	wp_enqueue_style( 'pre_underscores-style', get_stylesheet_uri() );
 
@@ -131,6 +179,11 @@ function pre_underscores_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'pre_underscores_scripts' );
+
+
+
+
+
 
 /**
  * Implement the Custom Header feature.
