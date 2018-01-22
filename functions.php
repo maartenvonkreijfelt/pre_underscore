@@ -117,6 +117,9 @@ add_action( 'widgets_init', 'pre_underscores_widgets_init' );
  * Enqueue scripts and styles.
  */
 function pre_underscores_scripts() {
+	//Enqueue Google fonts: Open+Sans and Ubuntu
+	wp_enqueue_style('pre-underscore-fonts', 'https://fonts.googleapis.com/css?family=Open+Sans:300|Ubuntu');
+
 	wp_enqueue_style( 'pre_underscores-style', get_stylesheet_uri() );
 
 	wp_enqueue_script( 'pre_underscores-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
