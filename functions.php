@@ -164,7 +164,7 @@ function pre_underscores_fonts_url() {
  * @return array $urls           URLs to print for resource hints.
  */
 function pre_underscore_resource_hints( $urls, $relation_type ) {
-	if ( wp_style_is( 'pre-underscore-fonts', 'queue' ) && 'preconnect' === $relation_type ) {
+	if ( wp_style_is( 'pre-underscores-fonts', 'queue' ) && 'preconnect' === $relation_type ) {
 		$urls[] = array(
 			'href' => 'https://fonts.gstatic.com',
 			'crossorigin',
@@ -173,7 +173,7 @@ function pre_underscore_resource_hints( $urls, $relation_type ) {
 
 	return $urls;
 }
-add_filter( 'wp_resource_hints', 'pre_underscore_resource_hint', 10, 2 );
+add_filter( 'wp_resource_hints', 'pre_underscore_resource_hints', 10, 2 );
 
 
 
@@ -182,7 +182,7 @@ add_filter( 'wp_resource_hints', 'pre_underscore_resource_hint', 10, 2 );
  */
 function pre_underscores_scripts() {
 	//Enqueue Google fonts: Open+Sans and Ubuntu
-	wp_enqueue_style('pre-underscore-fonts', pre_underscores_fonts_url() );
+	wp_enqueue_style('pre-underscores-fonts', pre_underscores_fonts_url() );
 	//wp_enqueue_style('pre-underscore-fonts', 'https://fonts.googleapis.com/css?family=Open+Sans:300|Ubuntu');
 
 
