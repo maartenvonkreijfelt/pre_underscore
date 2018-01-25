@@ -26,17 +26,12 @@
 
 
 
+	<figure class="header-image">
 
+	<?php the_header_image_tag(); ?>
 
-		<?php if ( get_header_image() ) : ?>
-		<figure>
-			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-				<img src="<?php header_image(); ?>" width="<?php echo esc_attr( get_custom_header()->width ); ?>" height="<?php echo esc_attr( get_custom_header()->height ); ?>" alt="">
-			</a>
-			</figure><!--  .header-image -->
-		<?php endif; // End header image check. ?>
+	</figure><!-- .header-image -->
 
-	
 	<header id="masthead" class="site-header">
 		<div class="site-branding">
 			<?php

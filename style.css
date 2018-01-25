@@ -419,7 +419,7 @@ img {
 }
 
 figure {
-	margin: 1em 0;
+	margin: 0 0;
 	/* Extra wide images within figure tags don't overflow the content area. */
 }
 
@@ -741,6 +741,10 @@ a:hover, a:active {
 /*--------------------------------------------------------------
 ## Header
 --------------------------------------------------------------*/
+figure.header-image img {
+	display: block;
+}
+
 .site-header {
 	position: relative;
 	padding: 1em;
