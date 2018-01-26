@@ -79,6 +79,14 @@ if ( ! function_exists( 'pre_underscores_setup' ) ) :
 			'flex-width'  => true,
 			'flex-height' => true,
 		) );
+
+
+		// Add theme support for Custom Logo
+		add_theme_support( 'custom-logo', array(
+			'width' => 90,
+			'height' => 90,
+			'flex-width' => true,
+		));
 	}
 endif;
 add_action( 'after_setup_theme', 'pre_underscores_setup' );
