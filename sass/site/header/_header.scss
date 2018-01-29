@@ -1,16 +1,19 @@
-figure.header-image img {
-display: block;
+.header-image {
+	max-height: 60vh;
+	overflow: hidden;
+	
+	img {
+		display: block;
+		width: 100vw;
+	}
 }
-
-
-
 .site-header {
 	position: relative;
 	padding: 1em;
 	font-family: $font__sans;
 	color: #fff;
 	background-color: $color__skin;
-
+	
 	@media screen and (min-width: $query__small) {
 		padding: 1em 2em;
 	}
@@ -43,11 +46,11 @@ display: block;
 	font-size: 1.6em;
 	font-weight: 900;
 	line-height: 1em;
-
+	
 	a {
 		color: white;
 		text-decoration: none;
-
+		
 		&:hover,
 		&:focus {
 			text-decoration: underline;
@@ -66,14 +69,12 @@ display: block;
 	.site-header {
 		display: flex;
 		justify-content: space-between;
-		
 	}
-
+	
 	.site-branding {
 		width: 35%;
-		flex: 1 0 auto;
 	}
-
+	
 	.site-navigation {
 		width: 55%;
 	}
