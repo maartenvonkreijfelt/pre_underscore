@@ -1,23 +1,43 @@
-figure.header-image img {
-display: block;
+.header-image {
+	max-height: 60vh;
+	overflow: hidden;
+	
+	img {
+		display: block;
+		width: 100vw;
+	}
 }
-
-
-
 .site-header {
 	position: relative;
 	padding: 1em;
 	font-family: $font__sans;
 	color: #fff;
 	background-color: $color__skin;
-
+	
 	@media screen and (min-width: $query__small) {
 		padding: 1em 2em;
 	}
 }
 
 .site-branding {
+	display: flex;
 	min-height: 65px;
+}
+
+.custom-logo-link {
+	margin-right: 1em;
+	img {
+		display: block;
+		height: 65px;
+		width: auto;
+	}
+}
+
+.site-branding__text {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	height: 65px;
 }
 
 .site-title {
@@ -26,11 +46,11 @@ display: block;
 	font-size: 1.6em;
 	font-weight: 900;
 	line-height: 1em;
-
+	
 	a {
 		color: white;
 		text-decoration: none;
-
+		
 		&:hover,
 		&:focus {
 			text-decoration: underline;
@@ -50,11 +70,11 @@ display: block;
 		display: flex;
 		justify-content: space-between;
 	}
-
+	
 	.site-branding {
 		width: 35%;
 	}
-
+	
 	.site-navigation {
 		width: 55%;
 	}
