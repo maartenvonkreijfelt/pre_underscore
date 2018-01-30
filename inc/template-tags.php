@@ -139,14 +139,3 @@ function pre_underscores_post_thumbnail() {
 }
 endif;
 
-function pre_underscores_the_category_list() {
-	// Hide category and tag text for pages.
-	if ( 'post' === get_post_type() ) {
-		/* translators: used between list items, there is a space after the comma */
-		$categories_list = get_the_category_list( esc_html__( ', ', 'pre_underscores' ) );
-		if ( $categories_list ) {
-			/* translators: 1: list of categories. */
-			printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'pre_underscores' ) . '</span>', $categories_list ); // WPCS: XSS OK.
-		}
-	}
-}
