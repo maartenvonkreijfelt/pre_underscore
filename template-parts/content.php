@@ -1,16 +1,17 @@
 <?php
-/**
- * Template part for displaying posts
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- *
- * @package Pre_Underscores
- */
+		/**
+		 * Template part for displaying posts
+		 *
+		 * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
+		 *
+		 * @package Pre_Underscores
+		 */
 
-?>
+		?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
+		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+			<header class="entry-header">
+				<?php pre_underscores_the_category_list();?>
 		<?php
 		if ( is_singular() ) :
 			the_title( '<h1 class="entry-title">', '</h1>' );
