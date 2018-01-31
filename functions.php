@@ -190,6 +190,7 @@ function pre_underscores_scripts() {
 	wp_enqueue_style( 'pre_underscores-style', get_stylesheet_uri() );
 
 	wp_enqueue_script( 'pre_underscores-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+	wp_enqueue_script( 'pre_underscores-functions', get_template_directory_uri() . '/js/functions.js', array('jquery'), '20181831', true );
 
 	wp_localize_script( 'pre_underscores-navigation', 'pre_underscoresScreenReaderText', array(
 		'expand' => __( 'Expand child menu', 'pre_underscores'),
