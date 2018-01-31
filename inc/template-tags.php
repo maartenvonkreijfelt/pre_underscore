@@ -151,3 +151,17 @@ function pre_underscores_the_category_list() {
 		}
 	}
 }
+
+/**
+ * Post navigation (previous / next post) for single posts.
+ */
+function pre_underscores_post_navigation() {
+	the_post_navigation( array(
+		'next_text' => '<span class="meta-nav" aria-hidden="true">' . __( 'Next', 'pre_underscores' ) . '</span> ' .
+		               '<span class="screen-reader-text">' . __( 'Next post:', 'pre_underscores' ) . '</span> ' .
+		               '<span class="post-title">%title</span>',
+		'prev_text' => '<span class="meta-nav" aria-hidden="true">' . __( 'Previous', 'pre_underscores' ) . '</span> ' .
+		               '<span class="screen-reader-text">' . __( 'Previous post:', 'pre_underscores' ) . '</span> ' .
+		               '<span class="post-title">%title</span>',
+	) );
+}
