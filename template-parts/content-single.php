@@ -19,7 +19,7 @@
 			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 		endif;
 
-		if ( 'post' === get_post_type() ) : ?>
+		if ( is_active_sidebar( 'sidebar-1' ) ) : ?>
 		<div class="entry-meta">
 			<?php pre_underscores_posted_on(); ?>
 		</div><!-- .entry-meta -->
@@ -29,6 +29,15 @@
 
 	<?php pre_underscores_post_thumbnail(); ?>
 <section class="post-content">
+	<?php
+	if ( !is_active_sidebar( 'sidebar-1' ) ) : ?>
+	<div class="post-content__wrap">
+	<div class="entry-meta">
+		<?php pre_underscores_posted_on(); ?>
+	</div><!-- .entry-meta -->
+		<div class="post-content__body">
+	<?php
+	endif; ?>
 	<div class="entry-content">
 		<?php
 			the_content( sprintf(
@@ -52,8 +61,18 @@
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
+
+
+
 		<?php pre_underscores_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
+
+			<?php
+			if ( !is_active_sidebar( 'sidebar-1' ) ) : ?>
+				</div><!-- .post-content__body -->
+				</div><!-- .post-content__wrap -->
+			<?php endif; ?>
+
 			<?php pre_underscores_post_navigation();
 
 			// If comments are open or we have at least one comment, load up the comment template.
