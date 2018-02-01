@@ -40,19 +40,39 @@ if ( ! function_exists( 'pre_underscores_posted_on' ) ) :
 
 
 		if ( ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
-			echo ' <span class="comments-link"><span class="extra">Discussion </span>';
-			/* translators: %s: post title */
-			comments_popup_link( sprintf( wp_kses( __( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', 'pre_underscores' ), array( 'span' => array( 'class' => array() ) ) ), get_the_title() ) );
+			echo ' <span class="comments-link">';
+			comments_popup_link(
+				sprintf(
+					wp_kses(
+					/* translators: %s: post title */
+						__( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', 'pre_underscores' ),
+						array(
+							'span' => array(
+								'class' => array(),
+							),
+						)
+					),
+					get_the_title()
+				)
+			);
 			echo '</span>';
 		}
 
+
 		edit_post_link(
 			sprintf(
-			/* translators: %s: Name of current post */
-				esc_html__( 'Edit %s', 'pre_underscores' ),
-				the_title( '<span class="screen-reader-text">"', '"</span>', false )
+				wp_kses(
+				/* translators: %s: Name of current post. Only visible to screen readers */
+					__( 'Edit <span class="screen-reader-text">%s</span>', 'pre_underscores' ),
+					array(
+						'span' => array(
+							'class' => array(),
+						),
+					)
+				),
+				get_the_title()
 			),
-			' <span class="edit-link"><span class="extra">Admin </span>',
+			' <span class="edit-link">',
 			'</span>'
 		);
 
