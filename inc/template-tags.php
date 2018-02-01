@@ -14,7 +14,7 @@ if ( ! function_exists( 'pre_underscores_posted_on' ) ) :
 	function pre_underscores_posted_on() {
 		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
-			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
+			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s"><span style="display:none">%4$s</span></time>';
 		}
 
 		$time_string = sprintf( $time_string,
@@ -158,10 +158,10 @@ function pre_underscores_the_category_list() {
 function pre_underscores_post_navigation() {
 	the_post_navigation( array(
 		'next_text' => '<span class="meta-nav" aria-hidden="true">' . __( 'Next', 'pre_underscores' ) . '</span> ' .
-		               '<span class="screen-reader-text">' . __( 'Next post:', 'pre_underscores' ) . '</span> ' .
+		               '<span class="screen-reader-text">' . __( 'Next post:', 'humescores' ) . '</span> ' .
 		               '<span class="post-title">%title</span>',
-		'prev_text' => '<span class="meta-nav" aria-hidden="true">' . __( 'Previous', 'pre_underscores' ) . '</span> ' .
-		               '<span class="screen-reader-text">' . __( 'Previous post:', 'pre_underscores' ) . '</span> ' .
+		'prev_text' => '<span class="meta-nav" aria-hidden="true">' . __( 'Previous', 'humescores' ) . '</span> ' .
+		               '<span class="screen-reader-text">' . __( 'Previous post:', 'humescores' ) . '</span> ' .
 		               '<span class="post-title">%title</span>',
 	) );
 }
