@@ -44,8 +44,10 @@ if ( ! function_exists( 'pre_underscores_setup' ) ) :
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
-			'primary' => esc_html__( 'Primary', 'pre_underscores' ),
-					) );
+			'primary' => esc_html__( 'Header', 'pre_underscores' ),
+			'social' => esc_html__( 'Social Media Menu', 'pre_underscores' ),
+		) );
+
 
 		/*
 		 * Switch default core markup for search form, comment form, and comments
