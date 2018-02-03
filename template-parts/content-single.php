@@ -27,7 +27,7 @@
 		endif; ?>
 	</header><!-- .entry-header -->
 
-	<?php pre_underscores_post_thumbnail(); ?>
+	<?php pre_underscores_post_thumbnail('pre_underscores-full-bleed'); ?>
 <section class="post-content">
 	<?php
 	if ( !is_active_sidebar( 'sidebar-1' ) ) : ?>

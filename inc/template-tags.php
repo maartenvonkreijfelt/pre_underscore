@@ -92,7 +92,7 @@ if ( ! function_exists( 'pre_underscores_post_thumbnail' ) ) :
  * Wraps the post thumbnail in an anchor element on index views, or a div
  * element when on single views.
  */
-function pre_underscores_post_thumbnail() {
+function pre_underscores_post_thumbnail($image_size) {
 	if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
 		return;
 	}
@@ -101,7 +101,7 @@ function pre_underscores_post_thumbnail() {
 	?>
 
 	<figure class="featured-image full-bleed">
-		<?php the_post_thumbnail(); ?>
+		<?php the_post_thumbnail($image_size); ?>
 	</figure><!-- .featured-image full-bleed -->
 
 	<?php else : ?>

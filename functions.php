@@ -42,6 +42,8 @@ if ( ! function_exists( 'pre_underscores_setup' ) ) :
 		 */
 		add_theme_support( 'post-thumbnails' );
 
+			add_image_size('pre_underscores-full-bleed', 3000, 1200, true);
+
 // This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
 			'primary' => esc_html__( 'Header', 'pre_underscores' ),
