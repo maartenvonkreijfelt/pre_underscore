@@ -45,7 +45,7 @@ if ( post_password_required() ) {
 			?>
 		</h2><!-- .comments-title -->
 
-		
+
 
 		<ol class="comment-list">
 			<?php
