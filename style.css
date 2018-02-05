@@ -860,6 +860,38 @@ a:hover, a:active {
 /*--------------------------------------------------------------
 ## Archives
 --------------------------------------------------------------*/
+.archive-view {
+	background-color: #eee;
+}
+
+.archive-view .post {
+	position: relative;
+	background: white;
+}
+
+.archive-view .post__content {
+	padding: 2em 2em 3em;
+}
+
+@media screen and (min-width: 900px) {
+	.archive-view.has-sidebar .site-content {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-pack: justify;
+		    -ms-flex-pack: justify;
+		        justify-content: space-between;
+		-ms-flex-wrap: wrap;
+		    flex-wrap: wrap;
+	}
+	.archive-view.has-sidebar .content-area {
+		width: 60%;
+	}
+	.archive-view.has-sidebar .widget-area {
+		width: 30%;
+	}
+}
+
 /*--------------------------------------------------------------
 ## Header
 --------------------------------------------------------------*/
