@@ -145,3 +145,19 @@ function pre_underscores_post_navigation() {
 		               '<span class="post-title">%title</span>',
 	) );
 }
+
+/**
+ * Customize ellipsis at end of excerpts.
+ */
+function pre_underscores_excerpt_more( $more ) {
+	return "…";
+}
+add_filter( 'excerpt_more', 'pre_underscores_excerpt_more' );
+
+/**
+ * Filter excerpt length to 100 words.
+ */
+function pre_underscores_excerpt_length( $length ) {
+	return 100;
+}
+add_filter( 'excerpt_length', 'pre_underscores_excerpt_length');
