@@ -850,8 +850,10 @@ a:hover, a:active {
 	margin: 0 auto;
 }
 
+/* Single posts */
 @media screen and (min-width: 900px) {
-	.single.has-sidebar .hentry {
+	.single.has-sidebar .hentry,
+	.page .hentry {
 		display: -webkit-box;
 		display: -ms-flexbox;
 		display: flex;
@@ -861,17 +863,31 @@ a:hover, a:active {
 		    -ms-flex-pack: justify;
 		        justify-content: space-between;
 	}
-	.single.has-sidebar .hentry .entry-header {
+	.single.has-sidebar .hentry .entry-header,
+	.page .hentry .entry-header {
 		width: 100%;
 		-webkit-box-flex: 1;
 		    -ms-flex: 1 0 100%;
 		        flex: 1 0 100%;
 	}
-	.single.has-sidebar .hentry .post-content {
+	.single.has-sidebar .hentry .post-content,
+	.page .hentry .post-content {
 		width: 60%;
 	}
-	.single.has-sidebar .hentry .widget-area {
+	.single.has-sidebar .hentry .widget-area,
+	.page .hentry .widget-area {
 		width: 30%;
+	}
+	.page.has-page-sidebar .hentry {
+		-webkit-box-orient: horizontal;
+		-webkit-box-direction: reverse;
+		    -ms-flex-direction: row-reverse;
+		        flex-direction: row-reverse;
+	}
+	.page:not(.has-page-sidebar) .hentry {
+		-webkit-box-pack: end;
+		    -ms-flex-pack: end;
+		        justify-content: flex-end;
 	}
 }
 
@@ -1232,7 +1248,7 @@ button.dropdown-toggle {
 /*--------------------------------------------------------------
 ## Posts and pages
 --------------------------------------------------------------*/
-.sticky {
+.st.sticky {
 	display: block;
 }
 
@@ -1280,17 +1296,22 @@ button.dropdown-toggle {
 	border-bottom: 5px solid #b51c35;
 }
 
-.entry-meta {
+.entry-meta,
+.entry-footer {
+	font-family: "Open Sans", sans-serif, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans";
 	font-size: 90%;
 }
 
-.entry-meta a {
+.entry-meta a,
+.entry-footer a {
 	font-weight: 700;
 	text-decoration: none;
 	color: black;
 }
 
-.entry-meta a:focus, .entry-meta a:hover {
+.entry-meta a:focus, .entry-meta a:hover,
+.entry-footer a:focus,
+.entry-footer a:hover {
 	color: black;
 	border-bottom: 3px solid #b51c35;
 }
@@ -1306,12 +1327,11 @@ button.dropdown-toggle {
 	margin: 0 .5em;
 }
 
-/*
 .byline,
-.updated:not(.published){
+.updated:not(.published) {
 	display: none;
 }
-*/
+
 .single .byline,
 .group-blog .byline {
 	display: inline;
@@ -1361,6 +1381,7 @@ button.dropdown-toggle {
 	}
 }
 
+/* Single Post Featured Images */
 .full-bleed {
 	width: 100vw;
 	max-height: 1200px;

@@ -1,4 +1,4 @@
-.sticky {
+.st.sticky {
 	display: block;
 }
 
@@ -46,7 +46,9 @@
 	}
 }
 
-.entry-meta {
+.entry-meta,
+.entry-footer {
+	font-family: $font__sans;
 	font-size: 90%;
 
 	a {
@@ -77,12 +79,11 @@
 	}
 }
 
-/*
 .byline,
 .updated:not(.published){
 	display: none;
 }
-*/
+
 .single .byline,
 .group-blog .byline {
 	display: inline;
@@ -140,6 +141,8 @@
 
 	}
 }
+
+/* Single Post Featured Images */
 
 .full-bleed {
 	width: 100vw;
