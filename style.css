@@ -1412,6 +1412,17 @@ button.dropdown-toggle {
 	font-family: "Open Sans", sans-serif, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans";
 }
 
+.no-results .page-content {
+	background-color: #b51c35;
+	color: white;
+	padding: 1em;
+}
+
+.no-results .page-content:hover, .no-results .page-content:focus {
+	background-color: #b51c35;
+	color: white;
+}
+
 /*--------------------------------------------------------------
 ## Comments
 --------------------------------------------------------------*/

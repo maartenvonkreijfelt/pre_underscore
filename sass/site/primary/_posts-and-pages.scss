@@ -185,3 +185,16 @@
 	margin: 1.5em 0;
 	font-family: $font__sans;
 }
+
+.no-results .page-content{
+
+	background-color: $color__interactive;
+	color: white;
+	padding:1em;
+
+	&:hover,
+	&:focus {
+		background-color: $color__interactive;
+		color: white;
+	}
+}
