@@ -18,6 +18,10 @@
         flex-wrap: wrap;
       }
 
+      .page-header {
+        width: 100%;
+        flex: 1 0 100%;
+      }
       .content-area {
         width: $size__ratio-large;
       }
