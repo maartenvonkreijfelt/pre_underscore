@@ -1418,11 +1418,6 @@ button.dropdown-toggle {
 	padding: 1em;
 }
 
-.no-results .page-content:hover, .no-results .page-content:focus {
-	background-color: #b51c35;
-	color: white;
-}
-
 /*--------------------------------------------------------------
 ## Comments
 --------------------------------------------------------------*/
