@@ -44,8 +44,8 @@ get_header(); ?>
 
 
 			the_posts_pagination( array(
-				'prev_text' => pre_underscores_get_svg( array( 'icon' => 'arrow-left' ) ) . __( 'Newer', 'pre_underscores' ),
-				'next_text' => __( 'Older', 'pre_underscores' ) . pre_underscores_get_svg( array( 'icon' => 'arrow-right' ) ),
+				'prev_text' =>  pre_underscores_get_svg( array( 'icon' => 'arrow-left' ) ) .' &nbsp;&nbsp; ' .  __( 'Newer', 'pre_underscores' ),
+				'next_text' => __( 'Older', 'pre_underscores' ) . ' &nbsp;&nbsp; ' .pre_underscores_get_svg( array( 'icon' => 'arrow-right' ) ),
 				'before_page_number' => '<span class="screen-reader-text">' . __( 'Page ', 'pre_underscores' ) . '</span>',
 			));
 
