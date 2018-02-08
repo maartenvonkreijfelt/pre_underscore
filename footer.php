@@ -17,21 +17,46 @@
 
 	<footer id="colophon" class="site-footer">
 
-		<nav class="social-menu">
-			<?php wp_nav_menu( array( 'theme_location' => 'social') ); ?>
-		</nav><!-- .social-menu -->
-
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'pre_underscores' ) ); ?>"><?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'pre_underscores' ), 'WordPress' );
-			?></a>
-			<span class="sep"> | </span>
+		
+		
+		
+		
+		
+		<div class="site-footer__wrap">
 			<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'pre_underscores' ), 'pre_underscores', '<a href="http://www.preludio.nl/theme/pre_underscore">Maarten von Kreijfelt</a>' );
-			?>
-		</div><!-- .site-info -->
+			// Make sure there is a social menu to display.
+			if ( has_nav_menu( 'social' ) ) { ?>
+				<nav class="social-menu">
+					<?php
+					wp_nav_menu( array(
+						'theme_location' => 'social',
+						'menu_class'     => 'social-links-menu',
+						'depth'          => 1,
+						'link_before'    => '<span class="screen-reader-text">',
+						'link_after'     => '</span>' . pre_underscores_get_svg( array( 'icon' => 'chain' ) ),
+					) );
+					?>
+				</nav><!-- .social-menu -->
+			<?php } ?>
+
+			<div class="site-info">
+				<div><a href="<?php echo esc_url( __( 'https://wordpress.org/', 'pre_underscores' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'pre_underscores' ), 'WordPress' ); ?></a></div>
+				<div><?php printf( esc_html__( 'Theme: %1$s by %2$s', 'pre_underscores' ), 'pre_underscores', '<a href="https://www.preludio.nl/templates" rel="designer">Preludio</a>' ); ?></div>
+			</div><!-- .site-info -->
+		</div><!-- .site-footer__wrap -->
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 
