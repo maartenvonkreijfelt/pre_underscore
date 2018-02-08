@@ -45,7 +45,7 @@ if ( ! function_exists( 'pre_underscores_setup' ) ) :
 		add_image_size('pre_underscores-full-bleed', 3000, 1200, true);
 		add_image_size( 'pre_underscores-index-img', 900, 450, true );
 
-// This theme uses wp_nav_menu() in one location.
+// This theme uses wp_nav_menu() in two location.
 		register_nav_menus( array(
 			'primary' => esc_html__( 'Header', 'pre_underscores' ),
 			'social' => esc_html__( 'Social Media Menu', 'pre_underscores' ),
@@ -338,3 +338,10 @@ if ( defined( 'JETPACK__VERSION' ) ) {
  * Implement the SVG icons option.
  */
 require get_template_directory() . '/inc/icon-functions.php';
+
+
+
+/**
+ * Load Jetpack compatibility file.
+ */
+require get_template_directory() . '/inc/jetpack.php';
