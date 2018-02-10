@@ -35,22 +35,12 @@ function pre_underscores_customize_register( $wp_customize ) {
 		new WP_Customize_Color_Control(
 			$wp_customize,
 			'theme_bg_color', array(
-				'label' => __( 'Header and footer background color', 'humescores'),
+				'label' => __( 'Header and footer background color', 'pre_underscores'),
 				'section' => 'colors',
 				'settings' => 'theme_bg_color'
 			)
 		)
 	);
-
-
-
-
-
-
-
-
-
-
 
 
 
