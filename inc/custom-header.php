@@ -31,7 +31,7 @@ function pre_underscores_custom_header_setup() {
 		//'default-image'          => get_parent_theme_file_uri( '/assets/images/header.jpg' ),
 		'default-image'          => '',
 		'default-text-color'     => 'ffffff',
-		'width'                  => 2000,
+		'width'                  => 2650,
 		'height'                 => 850,
 		'flex-height'            => true,
 		'wp-head-callback'       => 'pre_underscores_header_style',

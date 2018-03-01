@@ -1097,7 +1097,8 @@ figure.header-image img {
 	display: block;
 	font-family: "Open Sans", sans-serif, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans";
 	font-weight: 400;
-	clear: left;
+	clear: right;
+	height: 40px;
 }
 
 .main-navigation ul {
@@ -1214,7 +1215,7 @@ button.dropdown-toggle {
 		-webkit-box-direction: normal;
 		    -ms-flex-direction: column;
 		        flex-direction: column;
-		background: rgba(255, 255, 255, 0.1);
+		background: #002152;
 		margin-left: 0;
 	}
 	.main-navigation ul ul li {

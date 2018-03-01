@@ -2,7 +2,8 @@
 	display: block;
 	font-family: $font__sans;
 	font-weight: 400;
-	clear: left;
+	clear: right;
+    height:40px;
 
 	ul {
 		display: none;
@@ -122,7 +123,7 @@ button.dropdown-toggle {
 
 			ul {
 				flex-direction: column;
-				background: hsla(0, 0%, 100%, .1);
+				background: hsla(216, 100%, 16%, 1);
 				margin-left: 0;
 
 				li {
