@@ -42,9 +42,13 @@ if ( ! function_exists( 'pre_underscores_setup' ) ) :
 		 */
 		add_theme_support( 'post-thumbnails' );
 
-		// This theme uses wp_nav_menu() in one location.
+		add_image_size('pre_underscores-full-bleed', 3000, 1200, true);
+		add_image_size( 'pre_underscores-index-img', 900, 450, true );
+
+// This theme uses wp_nav_menu() in two location.
 		register_nav_menus( array(
-			'menu-1' => esc_html__( 'Primary', 'pre_underscores' ),
+			'primary' => esc_html__( 'Header', 'pre_underscores' ),
+			'social' => esc_html__( 'Social Media Menu', 'pre_underscores' ),
 		) );
 
 		/*
@@ -105,6 +109,28 @@ function pre_underscores_widgets_init() {
 		'name'          => esc_html__( 'Sidebar', 'pre_underscores' ),
 		'id'            => 'sidebar-1',
 		'description'   => esc_html__( 'Add widgets here.', 'pre_underscores' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+
+
+	register_sidebar( array(
+		'name'          => esc_html__( 'Page Sidebar', 'pre_underscores' ),
+		'id'            => 'sidebar-2',
+		'description'   => esc_html__( 'Add page sidebar widgets here.', 'pre_underscores' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+
+
+	register_sidebar( array(
+		'name'          => esc_html__( 'Footer Widgets', 'pre_underscores' ),
+		'id'            => 'footer-1',
+		'description'   => esc_html__( 'Add footer widgets here.', 'pre_underscores' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget-title">',
@@ -190,6 +216,13 @@ function pre_underscores_scripts() {
 	wp_enqueue_style( 'pre_underscores-style', get_stylesheet_uri() );
 
 	wp_enqueue_script( 'pre_underscores-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+	wp_enqueue_script( 'pre_underscores-functions', get_template_directory_uri() . '/js/functions.js', array('jquery'), '20181831', true );
+
+	wp_localize_script( 'pre_underscores-navigation', 'pre_underscoresScreenReaderText', array(
+		'expand' => __( 'Expand child menu', 'pre_underscores'),
+		'collapse' => __( 'Collapse child menu', 'pre_underscores'),
+	));
+
 
 	wp_enqueue_script( 'pre_underscores-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
@@ -200,6 +233,76 @@ function pre_underscores_scripts() {
 add_action( 'wp_enqueue_scripts', 'pre_underscores_scripts' );
 
 
+/**
+ * Add custom image sizes attribute to enhance responsive image functionality
+ * for content images.
+ *
+ * @origin Twenty Seventeen 1.0
+ *
+ * @param string $sizes A source size value for use in a 'sizes' attribute.
+ * @param array  $size  Image size. Accepts an array of width and height
+ *                      values in pixels (in that order).
+ * @return string A source size value for use in a content image 'sizes' attribute.
+ */
+function pre_underscores_content_image_sizes_attr( $sizes, $size ) {
+	$width = $size[0];
+
+	if ( 900 <= $width ) {
+		$sizes = '(min-width: 900px) 700px, 900px';
+	}
+
+	if ( is_active_sidebar( 'sidebar-1' ) || is_active_sidebar( 'sidebar-2' ) ) {
+		$sizes = '(min-width: 900px) 600px, 900px';
+	}
+
+	return $sizes;
+}
+add_filter( 'wp_calculate_image_sizes', 'pre_underscores_content_image_sizes_attr', 10, 2 );
+
+/**
+ * Filter the `sizes` value in the header image markup.
+ *
+ * @origin Twenty Seventeen 1.0
+ *
+ * @param string $html   The HTML image tag markup being filtered.
+ * @param object $header The custom header object returned by 'get_custom_header()'.
+ * @param array  $attr   Array of the attributes for the image tag.
+ * @return string The filtered header image HTML.
+ */
+function pre_underscores_header_image_tag( $html, $header, $attr ) {
+	if ( isset( $attr['sizes'] ) ) {
+		$html = str_replace( $attr['sizes'], '100vw', $html );
+	}
+	return $html;
+}
+add_filter( 'get_header_image_tag', 'pre_underscores_header_image_tag', 10, 3 );
+
+/**
+ * Add custom image sizes attribute to enhance responsive image functionality
+ * for post thumbnails.
+ *
+ * @origin Twenty Seventeen 1.0
+ *
+ * @param array $attr       Attributes for the image markup.
+ * @param int   $attachment Image attachment ID.
+ * @param array $size       Registered image size or flat array of height and width dimensions.
+ * @return string A source size value for use in a post thumbnail 'sizes' attribute.
+ */
+function pre_underscores_post_thumbnail_sizes_attr( $attr, $attachment, $size ) {
+
+	if ( !is_singular() ) {
+		if ( is_active_sidebar( 'sidebar-1' ) ) {
+			$attr['sizes'] = '(max-width: 900px) 90vw, 800px';
+		} else {
+			$attr['sizes'] = '(max-width: 1000px) 90vw, 1000px';
+		}
+	} else {
+		$attr['sizes'] = '100vw';
+	}
+
+	return $attr;
+}
+add_filter( 'wp_get_attachment_image_attributes', 'pre_underscores_post_thumbnail_sizes_attr', 10, 3 );
 
 
 
@@ -231,3 +334,14 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+/**
+ * Implement the SVG icons option.
+ */
+require get_template_directory() . '/inc/icon-functions.php';
+
+
+
+/**
+ * Load Jetpack compatibility file.
+ */
+require get_template_directory() . '/inc/jetpack.php';
