@@ -83,6 +83,9 @@ if ( ! function_exists( 'pre_underscores_setup' ) ) :
 			'flex-width'  => true,
 			'flex-height' => true,
 		) );
+
+		/* Editor styles */
+		add_editor_style( array( 'inc/editor-styles.css', pre_underscores_fonts_url() ) );
 	}
 endif;
 add_action( 'after_setup_theme', 'pre_underscores_setup' );
