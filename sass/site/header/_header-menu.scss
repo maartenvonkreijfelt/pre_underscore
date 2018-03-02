@@ -2,8 +2,7 @@
 	display: block;
 	font-family: $font__sans;
 	font-weight: 400;
-	clear: right;
-    height:40px;
+
 
 	ul {
 		display: none;
@@ -110,6 +109,11 @@ button.dropdown-toggle {
 
 	.main-navigation {
 
+		clear: right;
+		height:40px;
+
+		height:200px;
+
 		.menu-item-has-children > a,
 		.page_item_has_children > a {
 			padding-right: 2em;
@@ -151,7 +155,12 @@ button.dropdown-toggle {
 @media screen and (min-width: $query__medium) {
 	.main-navigation {
 
-		ul {
+		clear: right;
+		height: 40px;
+	
+
+
+	ul {
 			justify-content: flex-end;
 			padding-top: 0;
 

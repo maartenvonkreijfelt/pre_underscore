@@ -1097,8 +1097,6 @@ figure.header-image img {
 	display: block;
 	font-family: "Open Sans", sans-serif, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans";
 	font-weight: 400;
-	clear: right;
-	height: 40px;
 }
 
 .main-navigation ul {
@@ -1197,6 +1195,11 @@ button.dropdown-toggle {
 	.menu-toggle {
 		display: none;
 	}
+	.main-navigation {
+		clear: right;
+		height: 40px;
+		height: 200px;
+	}
 	.main-navigation .menu-item-has-children > a,
 	.main-navigation .page_item_has_children > a {
 		padding-right: 2em;
@@ -1231,6 +1234,10 @@ button.dropdown-toggle {
 }
 
 @media screen and (min-width: 900px) {
+	.main-navigation {
+		clear: right;
+		height: 40px;
+	}
 	.main-navigation ul {
 		-webkit-box-pack: end;
 		    -ms-flex-pack: end;
